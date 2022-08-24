@@ -12,3 +12,8 @@ body {
     /* bd */
     border: 1px solid #000;
 }
+
+
+.quote .text {
+    font-style: italic;
+}
