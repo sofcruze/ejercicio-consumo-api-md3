@@ -1,0 +1,14 @@
+body {
+    /* bgc */
+    background-color: #aaa;
+}
+
+
+
+
+.quote {
+    /* p1rem */
+    padding: 1rem;
+    /* bd */
+    border: 1px solid #000;
+}
