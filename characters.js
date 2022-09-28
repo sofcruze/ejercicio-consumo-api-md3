@@ -1,6 +1,8 @@
 let currentOffset = 0
 let elementsPerPage = 3
 
+let scrollDebounce
+
 
 const apiUrl = "https://breakingbadapi.com/api/"
 
@@ -16,11 +18,9 @@ function doQuery( url, displayFunction ){
     request.then( function(response) {
 
         // info sobre nuestra respuesta
-        console.log("response", response)
 
         // extraer 'cuerpo' de respuesta
         response.json().then( function(data) {
-            console.log("data", data)
 
             if( typeof displayFunction == "function" ) {                
                 displayFunction( data )
@@ -30,7 +30,6 @@ function doQuery( url, displayFunction ){
         
     })
 
-    console.log( "request", request )
 
 }
 
@@ -46,7 +45,6 @@ function formatCharacter( character ) {
 
 function displayCharacters( data ) {
 
-    console.log("display", data);
 
     const formattedCharacters = data.map( formatCharacter ) 
 
@@ -125,17 +123,25 @@ function setupPagination() {
 
 function windowScroll() {
 
-    console.log( "scroll y", window.scrollY, window.innerHeight )
-    
-    const container = document.querySelector("#characters")
-    console.log( "container height", container.clientHeight )
+    if( ! scrollDebounce ) {
+
+        scrollDebounce = setTimeout( function(){
+            
+            const container = document.querySelector("#characters")
 
 
-    if( window.scrollY > container.clientHeight - window.innerHeight ) {
-        loadMore()
+            if( window.scrollY > container.clientHeight - window.innerHeight ) {
+                loadMore()
+            }
+
+            scrollDebounce = null
+
+        }, 300 )
+
     }
 
 }
+
 
 function setupInfiniteScroll() {
     window.addEventListener("scroll", windowScroll)

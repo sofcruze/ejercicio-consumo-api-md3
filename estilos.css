@@ -80,6 +80,8 @@ body {
     display: flex;
     /* fwp */
     flex-wrap: wrap;
+    /* jcc */
+    justify-content: space-evenly;
 }
 
 
