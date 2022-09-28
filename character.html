@@ -13,11 +13,7 @@
 <body>
 
 
-    <!-- section#characters -->
-    <section id="characters">
-
-        <!-- article.character.model -->
-        <article class="character model">
+<article class="character-detail">
             <!-- div.image -->
             <div class="image">
                 <!-- img -->
@@ -33,25 +29,40 @@
                 <p class="nickname">
                     Apodo
                 </p>
+                <dl>
+                    <dt>
+                        Edad
+                    </dt>
+                    <dd class="age">
+                        999 años
+                    </dd>
+                    <dt>
+                        Ocupaciones
+                    </dt>
+                    <dd class="occupations">
+                        <ul>
+                            <li> Ocupación </li>
+                            <li> Ocupación </li>
+                            <li> Ocupación </li>
+                            <li> Ocupación </li>
+                        </ul>
+                    </dd>
+                </dl>
+
             </div>
         </article>
 
 
-    </section>    
 
 
-    <!-- footer#pagination -->
-    <footer id="pagination">
-        <!-- button#load-more -->
-        <button id="load-more">
-            Cargar más
-        </button>
-    </footer>
+
 
 
     <!-- script -->
     <script src="utilities.js"></script>
-    <script src="characters.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+    <script src="character.js"></script>
+    
 
 </body>
 </html>
