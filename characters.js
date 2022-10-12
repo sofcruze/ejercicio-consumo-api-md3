@@ -32,7 +32,12 @@ function displayCharacters( data ) {
 
 function openElement( event ) {
     const el = event.target
-    console.log( "id", el.getAttribute("data-id") )
+    const id = el.getAttribute("data-id") 
+    console.log("id",id)
+
+    const url = new URL(window.location.href)
+    const newURL = `${url.protocol}//${url.hostname}:${url.port}/character.html?id=${id}`
+    window.location.href = newURL
 }
 
 

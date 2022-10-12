@@ -55,4 +55,8 @@ function displayCharacter( data ) {
     
 }
 
-doQuery("characters/3", displayCharacter )
+const searchParams = new URLSearchParams(window.location.search); 
+
+const id = searchParams.get("id");
+
+doQuery("characters/" + id, displayCharacter )
